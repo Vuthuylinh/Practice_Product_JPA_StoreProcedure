@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="product/layout :: head"></head>
+<body>
+<h3>View Product</h3>
+
+<p>
+    <a th:href="@{/products}">
+        Back to product list
+    </a>
+</p>
+
+<div id="form">
+    <form action="#" th:action="@{/view-product}" th:object="${product}"
+           novalidate="novalidate" enctype="multipart/form-data">
+        <div>
+            <label>ID</label>
+            <input type="text" th:field="*{id}"/>
+        </div>
+        <div>
+            <label>Name</label>
+            <input type="text" th:field="*{name}"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="text" th:field="*{price}"/>
+        </div>
+        <div>
+            <label>Create Date</label>
+            <input type="text" th:field="*{createDate}"/>
+        </div>
+        <div>
+            <lable>Quantity</lable>
+            <input type="text" th:field="*{quantity}"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" th:field="*{description}"/>
+        </div>
+        <div>
+            <label>Active</label>
+            <input type="text" th:field="*{active}"/>
+        </div>
+        <div>
+            <label>Product Picture</label>
+            <img th:src="@{'/i/' + ${product.getImage()}}"/>
+        </div>
+    </form>
+</div>
+<footer th:replace="product/layout :: footer"></footer>
+</body>
+</html>
